@@ -21,3 +21,11 @@ A lightly modernized version of the original 2021 PHP fragrance shop, using the 
 - Product names and prices are based on the original PHP site (₱150 each). Product images are from the uploaded project. Verify rights to display any brand-related images and video publicly.
 - No real payment integration or stock inventory is implemented.
 - Test Authentication and Firestore operations before publicly sharing the site. Avoid placing real customer data into a demo portfolio.
+
+## Product management
+
+Open `/admin.html` and sign in with an authorized administrator account. Use **Edit** to change a product price, name, category or image, or fill in **Add product** to create one. Images accept HTTPS URLs or existing `assets/` paths. Product changes are stored in Firestore `products` and appear in the shop automatically. The original 20 products remain available as defaults until individually edited. Only administrators can save products.
+
+The login panel stays visible while access is checked and shows a connection error if verification times out. Product changes do not alter existing orders.
+
+Regression checks: `node --test tests/catalog-admin.test.mjs`.
